@@ -1,0 +1,45 @@
+appId: "com.itsbgold.feelio"
+name: Validate the functionality of the "New Diary" form.
+onFlowStart:
+  - runScript: home.js
+  - runFlow: start-android.yaml
+
+---
+- assertVisible:
+    text: "Good day!"
+- tapOn:
+    point: "50%,91%" #this element has no accessibility id
+- assertVisible:
+    text: New Diary
+- tapOn: "${output.home.titleDiary}"
+- inputText:
+    text: "Sample Title"
+- tapOn: "${output.home.textDiary}"
+- inputText:
+    text: "This is a sample diary entry."
+# - takeScreenShot: beforeInputDiary
+- takeScreenshot: beforeInputDiary
+- assertVisible:
+    text: Save
+- tapOn: "Save"
+- tapOn: "Save"
+- assertVisible:
+    text: "Sample Title"
+# - takeScreenShot: afterInputDiary
+- takeScreenshot: afterInputDiary
+
+#Submit blank diary
+- assertVisible:
+    text: "Good day!"
+- tapOn:
+    point: "50%,91%" #this element has no accessibility id
+- assertVisible:
+    text: New Diary
+# - takeScreenShot: beforeInputDiary
+- takeScreenshot: beforeInputDiary
+- assertVisible:
+    text: Save
+- tapOn: "Save"
+- tapOn: "Save"
+# - takeScreenShot: afterInputDiary
+- takeScreenshot: afterInputDiary

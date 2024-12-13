@@ -1,0 +1,19 @@
+appId: "com.itsbgold.feelio"
+name: Validate the functionality of the month selector.
+onFlowStart:
+  - runScript: home.js
+  - runFlow: start-android.yaml
+
+---
+- assertVisible:
+    text: "December"
+    index: 1
+    enabled: true
+- assertVisible:
+    text: .*December.*
+- assertVisible:
+    text: "${output.home.btnJanuary}"
+    index: 1
+- tapOn:
+    text: "January"
+    index: 1

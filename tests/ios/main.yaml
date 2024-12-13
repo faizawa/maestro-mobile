@@ -1,0 +1,8 @@
+appId: "com.itsbgold.feelio"
+name: Run every case.
+
+---
+- runFlow: "startup-pin-code-test.yaml"
+- runFlow: "new-diary.yaml"
+- runFlow: "month-selector-test.yaml"
+- stopApp

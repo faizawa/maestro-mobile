@@ -1,0 +1,19 @@
+appId: "com.itsbgold.feelio"
+name: Input PIN Correctly
+onFlowStart:
+  - runScript: home.js
+
+---
+- launchApp
+- assertVisible:
+    text: "Enter your 4-digit Feelio PIN:"
+- tapOn:
+    text: "1"
+- tapOn:
+    text: "2"
+- tapOn:
+    text: "3"
+- tapOn:
+    text: "4"
+- assertVisible:
+    text: "Good day!"
